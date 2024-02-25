@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:quizzity/auth/login.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,24 +20,7 @@ class _MyAppState extends State<MyApp> {
       getPages: [
 
       ],
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Getx Example'),
-        ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              ElevatedButton(
-                onPressed: () {
-                  Get.toNamed('/second');
-                },
-                child: const Text('Go to Second'),
-              ),
-            ],
-          ),
-        ),
-      ),
+      home: Login(),
     );
   }
 }
