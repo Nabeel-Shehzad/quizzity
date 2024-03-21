@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quizzity/auth/login.dart';
+import 'package:quizzity/auth/reset_password.dart';
 import 'package:quizzity/auth/verify_emali.dart';
+import 'package:quizzity/screens/home.dart';
 
 import 'auth/forgot_password.dart';
 import 'auth/register.dart';
@@ -28,6 +30,8 @@ class _MyAppState extends State<MyApp> {
         GetPage(name: '/register', page: () => const Register()),
         GetPage(name: '/forgot_password', page: () => const ForgotPassword()),
         GetPage(name: '/verify_email', page: () => const VerifyEmail()),
+        GetPage(name: '/reset_password', page: () => const ResetPassword()),
+        GetPage(name: '/home', page: () => const Home()),
       ],
       home: Login(),
     );

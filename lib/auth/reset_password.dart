@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-class VerifyEmail extends StatefulWidget {
-  const VerifyEmail({super.key});
+class ResetPassword extends StatefulWidget {
+  const ResetPassword({super.key});
 
   @override
-  State<VerifyEmail> createState() => _VerifyEmailState();
+  State<ResetPassword> createState() => _ResetPasswordState();
 }
 
-class _VerifyEmailState extends State<VerifyEmail> {
+class _ResetPasswordState extends State<ResetPassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,9 +45,9 @@ class _VerifyEmailState extends State<VerifyEmail> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        'VERIFY EMAIL'.text.white.xl3.bold.center.make(),
-                        const SizedBox(height: 10),
-                        'One final step! We have sent a verification link to your email. Please verify your email to continue.'
+                        'FORGOT PASSWORD'.text.white.xl3.bold.center.make(),
+                        const SizedBox(height: 20),
+                        'One final step! We have sent a verification OTP to your email. Please verify your email to continue.'
                             .text
                             .white
                             .xl
