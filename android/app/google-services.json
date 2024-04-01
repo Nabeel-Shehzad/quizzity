@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "706863162875",
+    "project_id": "quizzity-c05ee",
+    "storage_bucket": "quizzity-c05ee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:706863162875:android:84a4738164551fc1b7575e",
+        "android_client_info": {
+          "package_name": "com.app.quizzity"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWXZo1acNPxOj64_r4tX07soBR1HUvB9g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

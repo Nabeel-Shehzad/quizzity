@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -10,6 +11,10 @@ class ForgotPassword extends StatefulWidget {
 }
 
 class _ForgotPasswordState extends State<ForgotPassword> {
+  final _formKey = GlobalKey<FormState>();
+  TextEditingController emailController = TextEditingController();
+  FirebaseAuth auth = FirebaseAuth.instance;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,13 +46,15 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                       width: 200,
                     ),
                   ),
-                  Container(
+                  Form(
+                    key: _formKey,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         'FORGOT PASSWORD'.text.xl5.bold.center.make(),
                         const SizedBox(height: 20),
                         TextFormField(
+                          controller: emailController,
                           decoration: InputDecoration(
                             labelText: 'Email',
                             labelStyle: const TextStyle(
@@ -57,6 +64,15 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                               borderRadius: BorderRadius.circular(10),
                             ),
                           ),
+                          style: TextStyle(
+                              color: Colors.white
+                          ),
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Please enter your email';
+                            }
+                            return null;
+                          },
                         ).p8(),
                         const SizedBox(height: 20),
                         ElevatedButton(
@@ -65,7 +81,17 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                             minimumSize: const Size(250, 50),
                           ),
                           onPressed: () {
-                            Get.offAllNamed('/reset_password');
+                            if (_formKey.currentState!.validate()) {
+                              auth.sendPasswordResetEmail(
+                                email: emailController.text,
+                              );
+                              Get.snackbar(
+                                'Success',
+                                'Password reset link sent to your email',
+                                snackPosition: SnackPosition.BOTTOM,
+                              );
+                              Get.offAllNamed('/login');
+                            }
                           },
                           child: 'Submit'.text.white.xl.color(Colors.white).make(),
                         ).p8().centered(),
