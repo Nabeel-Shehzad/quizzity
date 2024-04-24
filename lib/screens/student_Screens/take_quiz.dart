@@ -51,8 +51,6 @@ class _TakeQuizState extends State<TakeQuiz> {
     });
 
     User? user = auth.currentUser;
-    //results -> uer id -> quiz id -> totalPoints, achievedPoints
-    //if results not exist, create new one
     results = FirebaseFirestore.instance.collection('results');
     results.doc(user!.uid).collection('results').doc(quizId).set({
       'totalPoints': totalPoints,
